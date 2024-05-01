@@ -1,0 +1,9 @@
+# Compiled class file
+*.class
+
+# Classpath, project files
+.classpath
+.project
+
+# settings folder
+/.settings
