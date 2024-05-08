@@ -1,17 +1,11 @@
 package leetcode.questions;
 
 public class Problem_10 {
-
+	//https://leetcode.com/problems/regular-expression-matching/description/
 	public static boolean  isMatch(String s, String p) {
         return recurcise( s,  p, 0, 0) ;
     }
-	// if i< 0 and j < 0 return true
-	// j< 0 pattern exceeded len
-	// check for match= same characters and . is true.
-	// in case of * either proceed with comparsion or ignore it.
-	
-	//a
-	//ab*a
+
 	public static boolean recurcise(String s, String p, int i, int j) {
 		if(i >= s.length() && j >= p.length()) {
 			return true;
