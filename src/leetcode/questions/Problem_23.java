@@ -2,7 +2,7 @@ package leetcode.questions;
 
 import leetcode.questions.Common.ListNode;
 
-public class Problem_29 {
+public class Problem_23 {
 
 	//https://leetcode.com/problems/merge-k-sorted-lists/description/
 	public static ListNode mergeKLists(ListNode[] lists) {
