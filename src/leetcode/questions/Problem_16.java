@@ -11,6 +11,7 @@ public class Problem_16 {
         Arrays.sort(nums);
         int diff = Integer.MAX_VALUE ;
         int sumFinal = Integer.MAX_VALUE ;
+        
 		while (i < j && j < nums.length-1) {
         	while (j < k) {
         		int sum = nums[i] + nums[j] + nums[k];
