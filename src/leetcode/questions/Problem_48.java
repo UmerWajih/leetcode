@@ -15,7 +15,6 @@ public class Problem_48 {
 			}
 		}
 		
-		
 		// now reverse the colums
 		int start = 0, end=col-1;
 		for(int i=0; i< row; i++) {
