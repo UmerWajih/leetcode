@@ -20,9 +20,9 @@ public class Problem_48 {
 		int start = 0, end=col-1;
 		for(int i=0; i< row; i++) {
 			while(start < end) {
-				int t = matrix[row][end];
-				matrix[row][end] = matrix[row][start];
-				matrix[row][start] = t;
+				int t = matrix[i][end];
+				matrix[i][end] = matrix[i][start];
+				matrix[i][start] = t;
 				start++;end--;				
 			}
 			start = 0; end=col-1;

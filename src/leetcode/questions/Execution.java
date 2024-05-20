@@ -1,10 +1,12 @@
 package leetcode.questions;
 
+import leetcode.questions.x101.to.x200.Problem_121;
+
 public class Execution {
 
 	public static void main(String[] args) {
 		
-		Problem_48.rotate(new int [][] {{1,2,3},{4,5,6},{7,8,9}});
+		System.out.println(Problem_121.maxProfit(new int [] {7,1,5,3,6,4}));
 	}
 
 }
