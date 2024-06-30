@@ -67,23 +67,31 @@ public class Problem_123 {
 	}
 	
 	
-	public static int maxProfit(int[] prices) {
-		Map<Integer[], Integer> profit = new HashMap<>();
-		recursive(prices, 0, profit); 
-		for (Integer[] val : profit.keySet()) {
-			System.out.println("Key:"+ val[0]+","+val[1]+"  : Value :  "+profit.get(val));
-		}
-		return getMaxProfits(profit);
-    }
-	//if you dont want to use DP use simple math solution
 //	public static int maxProfit(int[] prices) {
-//		int sell1 = 0, sell2 = 0, buy1 = Integer.MIN_VALUE, buy2 = Integer.MIN_VALUE;
-//		for (int i = 0; i < prices.length; i++) {
-//			buy1 = Math.max(buy1, -prices[i]);
-//			sell1 = Math.max(sell1, buy1 + prices[i]);
-//			buy2 = Math.max(buy2, sell1 - prices[i]);
-//			sell2 = Math.max(sell2, buy2 + prices[i]);
+//		Map<Integer[], Integer> profit = new HashMap<>();
+//		recursive(prices, 0, profit); 
+//		for (Integer[] val : profit.keySet()) {
+//			System.out.println("Key:"+ val[0]+","+val[1]+"  : Value :  "+profit.get(val));
 //		}
-//		return sell2;
+//		return getMaxProfits(profit);
 //    }
+	//if you dont want to use DP use simple math solution
+	
+	//1,2,3,4,5
+	public static int maxProfit(int[] prices) {
+		int sell1 = 0, sell2 = 0, buy1 = Integer.MIN_VALUE, buy2 = Integer.MIN_VALUE;
+		for (int i = 0; i < prices.length; i++) {
+			//if we buy we loose we have less money
+			buy1 = Math.max(buy1, -prices[i]); //-1
+			//if selling now seems feasible check
+			//current profit  from first transaction
+			//sum of buy1 which initially will be a loss by price of current day
+			sell1 = Math.max(sell1, buy1 + prices[i]); //2
+			//buy2 will be porfit from previous sale  - cost of current day
+			buy2 = Math.max(buy2, sell1 - prices[i]); // -1
+			//sell 2 will be left over cash from buy2 and and current sale profit
+			sell2 = Math.max(sell2, buy2 + prices[i]); // 2
+		}
+		return sell2;
+    }
 }
