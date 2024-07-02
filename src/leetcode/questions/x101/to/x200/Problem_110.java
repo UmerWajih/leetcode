@@ -3,25 +3,36 @@ package leetcode.questions.x101.to.x200;
 import leetcode.questions.Common.TreeNode;
 
 public class Problem_110 {
+	
+	//https://leetcode.com/problems/balanced-binary-tree/description/
+	
+	//Approach 1: 
+	//send in left side of the tree, get its height
+	//senf in right, get its height
+	//if difference is greater than 1, return false
+	//This approach is not optimal, why are we checking if height of all nodes if a validation can happen quite quickly
+	
+	//Approach 2 DFS:
+	//go down left, if there is an imbalance return false
+	//do the same for right
 	public boolean isBalanced(TreeNode root) {
 		if (root == null) return true;
-		return recurcise(root.left, root.right);
+		
+		return recurcise(root) == -1 ? false : true;
     }
 	
-	public boolean recurcise(TreeNode left, TreeNode right) {
+	public int recurcise(TreeNode node) {
 		
-		//if either is null we have an end case
-		if(left==null && right ==null) return true;
-		if(left == null && right !=null) {
-			if(right.right==null) return true;
-			if(right.right!=null) return false;
+		if (node == null) return 0;
+		int l = recurcise(node.left);
+		int r = recurcise(node.right);
+		// if there are invalid nodes
+		if (l == -1 || r == -1)  return -1;
+		if(Math.abs(l-r) > 1){
+			return -1;
 		}
+		//return the height
+		return Math.max(l, r)+1;
 		
-		if(left != null && right ==null) {
-			if(left.left==null) return true;
-			if(left.left!=null) return false;
-		}
-		
-		return recurcise(left.left, right.right) || recurcise(left.right, right.left);
 	}
 }
