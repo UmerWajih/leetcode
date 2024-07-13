@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Problem_202 {
+	//https://leetcode.com/problems/happy-number
 	private static boolean recursive(int n, Set<Integer> set) {
 		if (set.contains(n))return false;
 		int output = 0, input =n ;
