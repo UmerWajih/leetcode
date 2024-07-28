@@ -17,7 +17,7 @@ public class Problem_347 {
 		q.addAll(map.entrySet());
 		
 		for(int i=0; i<k;i++) {
-			output[i]= q.poll().getValue();
+			output[i]= q.poll().getKey();
 		}
 		return output;
     }
