@@ -8,7 +8,7 @@ public static int[] productExceptSelf(int[] nums) {
 	//Output: [24,12,8,6]
 	
 	// 1, 2, 6,24
-	//24,12, 4, 1
+	// 1, 1, 2, 6
 	int[] result = new int[nums.length];
 	int tmp=1;
     for (int i = 0; i < nums.length; i++) {
