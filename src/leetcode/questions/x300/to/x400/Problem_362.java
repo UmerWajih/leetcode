@@ -39,16 +39,17 @@ public class Problem_362 {
 			//when left becomes greater than target then we stop
 			while(q.get(left) < target) {
 				int mid =left + (right - left) / 2;
-				if(mid > target) {
+				
+				if(q.get(mid)  > target) {
 					right=mid;
 				}else {
 					left=mid;
 				}		
 			}
 			
-			while(left > 0 && q.get(left) > target) left--;
+			while(left >= 0 && q.get(left) > target) left--;
 			
-			return left == 0 ? q.size() : q.size()-(left+1);
+			return left == -1 ? q.size() : q.size()-(left+1);
 
 
 		} 
