@@ -4,20 +4,24 @@ public class Problem_2468 {
 
 	public static String[] splitMessage(String message, int limit) {
 		
-        int parts=0, target =10, suffixLen =5, index=0;
-        int available= limit-suffixLen;
+        int parts=0;  
+        int suffixLen =5; //minimum suffix len ie <1/1>
+        int index=0; //index of message
+
+        int target =10; //if we hit a target we go back target-1 chars, so decrement index by that
+        int available= limit-suffixLen; //number of chars we can pull from message
         
-        if(available == 0) return new String[] {};
+        if(available <= 0) return new String[] {};
         
         while(index < message.length()) {
         	index +=available;
         	parts++;
         	if(parts == target) {
         		index = index - target -1;
-        		target*=10;
-        		suffixLen+=2;
+        		target*=10; //next time char len of suffix will be hit will be when we hit *10 that -> part 9 to 10
+        		suffixLen+=2;//every time target hits *10 suffix len goes up by 2
         		available= limit-suffixLen;
-        		if(available == 0) return new String[] {};
+        		if(available <= 0) return new String[] {};
         	}
         }
         index=0;
